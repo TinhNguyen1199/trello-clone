@@ -1,5 +1,4 @@
 import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
-import { cyan, green, red } from "@mui/material/colors";
 
 const theme = extendTheme({
 	trello: {
@@ -7,52 +6,75 @@ const theme = extendTheme({
 		boardBarHeight: "58px",
 	},
 	colorSchemes: {
-		light: {
-			palette: {
-				primary: green,
+		// light: {
+		// 	palette: {
+		// 		primary: green,
+		// 	},
+		// },
+		// dark: {
+		// 	palette: {
+		// 		primary: cyan,
+		// 	},
+		// },
+	},
+	components: {
+		MuiCssBaseline: {
+			styleOverrides: {
+				body: {
+					"*::-webkit-scrollbar": {
+						width: "8px",
+						height: "8px",
+					},
+					"*::-webkit-scrollbar-thumb ": {
+						background: "#bdc3c7",
+						borderRadius: '8px'
+					},
+					"*::-webkit-scrollbar-thumb:hover ": {
+						background: "#27ae60",
+					},
+				},
 			},
 		},
-		dark: {
-			palette: {
-				primary: cyan,
+		MuiButton: {
+			styleOverrides: {
+				root: {
+					textTransform: "none",
+				},
+			},
+		},
+		MuiInputLabel: {
+			styleOverrides: {
+				root: ({ theme }) => ({
+					// color: theme.palette.primary.main,
+					fontSIze: "0.875rem",
+				}),
+			},
+		},
+		MuiOutlinedInput: {
+			styleOverrides: {
+				root: ({ theme }) => ({
+					// color: theme.palette.primary.main,
+					// fontSize: "0.875rem",
+					// ".MuiOutlinedInput-notchedOutline": {
+					// 	borderColor: "red",
+					// },
+					// "&:hover": {
+					// 	".MuiOutlinedInput-notchedOutline": {
+					// 		borderColor: "blue",
+					// 	},
+					// },
+					"& fieldset": {
+						boderWidth: "0.5px !important",
+					},
+					"&:hover fieldset": {
+						boderWidth: "1.5px !important",
+					},
+					"&.Mui-focused fieldset": {
+						boderWidth: "1.5px !important",
+					},
+				}),
 			},
 		},
 	},
-	components: {
-		MuiButton: {
-		  styleOverrides: {
-			root: {
-			  textTransform: 'none'
-			},
-		  },
-		},
-		MuiInputLabel: {
-		  styleOverrides: {
-			root: ({theme}) => ({
-			  color: theme.palette.primary.main,
-			  fontSIze: "0.875rem"
-			})
-		  },
-		},
-		MuiOutlinedInput: {
-		  styleOverrides: {
-			root: ({theme}) => ({
-				color: theme.palette.primary.main,
-				fontSize: "0.875rem",
-				".MuiOutlinedInput-notchedOutline": {
-					borderColor: "red"
-				},
-				'&:hover': {
-					".MuiOutlinedInput-notchedOutline": {
-						borderColor: "blue"
-					},
-				},
-				"& fieldset": {
-					boderWidth: "3px !important"
-				}
-			})
-		  },
-		},
-	  },
 });
 export default theme;

@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Check from '@mui/icons-material/Check';
+import Check from "@mui/icons-material/Check";
 
 const Template = () => {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,6 +24,7 @@ const Template = () => {
 	return (
 		<Box>
 			<Button
+				sx={{ color: "white" }}
 				id="basic-button-template"
 				aria-controls={open ? "basic-menu-template" : undefined}
 				aria-haspopup="true"
