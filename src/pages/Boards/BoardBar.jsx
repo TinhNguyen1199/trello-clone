@@ -9,7 +9,7 @@ import Avatar from "@mui/material/Avatar";
 import AvatarGroup from "@mui/material/AvatarGroup";
 import Tooltip from "@mui/material/Tooltip";
 import Button from "@mui/material/Button";
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 const MENU_STYLE = {
 	color: "white",
@@ -21,7 +21,7 @@ const MENU_STYLE = {
 	"&:hover": { bgcolor: "primary.50" },
 };
 
-const BoardBar = () => {
+const BoardBar = ({board}) => {
 	return (
 		<Box
 			sx={{
@@ -32,18 +32,20 @@ const BoardBar = () => {
 				gap: 2,
 				overflowX: "auto",
 				px: 2,
-				borderBottom: "1px solid #00bfa5",
+				// borderBottom: "1px solid #00bfa5",
 				bgcolor: (theme) => (theme.palette.mode === "dark" ? "##34495e" : "#1976d2"),
 			}}>
 			<Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-				<Chip sx={MENU_STYLE} icon={<DashboardIcon />} label="Tinh Nguyen" clickable />
-				<Chip sx={MENU_STYLE} icon={<VpnLockIcon />} label="Public/Private Workspace" clickable />
+				<Chip sx={MENU_STYLE} icon={<DashboardIcon />} label={board.title} clickable />
+				<Chip sx={MENU_STYLE} icon={<VpnLockIcon />} label={board.type} clickable />
 				<Chip sx={MENU_STYLE} icon={<AddToDriveIcon />} label="Add to google drive" clickable />
 				<Chip sx={MENU_STYLE} icon={<BoltIcon />} label="Automation" clickable />
 				<Chip sx={MENU_STYLE} icon={<FilterListIcon />} label="Filter" clickable />
 			</Box>
 			<Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-				<Button startIcon={<PersonAddIcon/>} variant="outlined" sx={{color: 'white', borderColor: 'white', '&:hover': {borderColor: 'white'}}}>Invite</Button>
+				<Button startIcon={<PersonAddIcon />} variant="outlined" sx={{ color: "white", borderColor: "white", "&:hover": { borderColor: "white" } }}>
+					Invite
+				</Button>
 
 				<AvatarGroup max={3} sx={{ "& .MuiAvatar-root": { width: 28, height: 28, fontSize: 16 } }}>
 					<Tooltip title="Tinh Nguyen">
